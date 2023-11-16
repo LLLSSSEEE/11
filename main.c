@@ -1,22 +1,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void swap (int *x, int *y)
-{
-     int temp;
-     
-     temp = *x; //*붙여줘야 한다.  
-     *x = *y;
-     *y = temp;
-}
 
 int main(int argc, char *argv[])
 {
-     int a = 3;
-     int b = 5;
+     int i;                         //정수형 i 선언 
+     int grade[5];                  //정수형 grade[5] 선언  
+     int average = 0;               //정수형 average 선언, 0으로 초기화 
      
-     swap(&a, &b); //a,b가 아닌,, 이제 함수를 포인터로 받는 형태이기 때문에 변수 주소값(&a, &b)을 넣어줘야 한다.  
-     printf("a : %i, b : %i\n", a, b);
+     for (i=0; i<5; i++)            //i가 0,1,2,3,4, 반복하면 for문 탈출 
+     {
+         printf("input value (%i) : ", i); //grade[0],[1],[2],[3],[4] 출력 
+         scanf("%d", &grade[i]);    //수를 입력하면 grade[0],[1],[2],[3],[4]에 저장 
+     }
+   
+   
+   //반복문 및 포인터 문법을 통해 grade 배열값 출력 및 평균 값 계산
+     //반복문 돌리기, grade 배열값 출력 
+     for (i=0; i<5; i++)
+     {
+         printf("grade[%i] = %i\n", i, *(grade+i));
+         average = average + *(grade+i); 
+     } 
+   
+     //평균값 출력 
+     printf("\n"); 
+     printf("average : %i\n ", average/5);
 
   
   system("PAUSE");	
