@@ -1,20 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void swap (int *x, int *y)
+{
+     int temp;
+     
+     temp = *x; //*붙여줘야 한다.  
+     *x = *y;
+     *y = temp;
+}
+
 int main(int argc, char *argv[])
 {
-    int i =300; //300으로 변경해서도 해보기.
-    
-    //정수형 포인터 변수 pi 선언. 
-    //pi가 i를 가리키게 함. 
-    int* pi = &i; 
-    
-    //문자형 포인터 변수 pc 선언.
-    //pc가 i를 가리키게 함. 
-    char* pc = &i;
-    
-    printf("%i, %i, %i\n", i, *pi, *pc);
+     int a = 3;
+     int b = 5;
+     
+     swap(&a, &b); //a,b가 아닌,, 이제 함수를 포인터로 받는 형태이기 때문에 변수 주소값(&a, &b)을 넣어줘야 한다.  
+     printf("a : %i, b : %i\n", a, b);
+
   
   system("PAUSE");	
   return 0;
 }
+
