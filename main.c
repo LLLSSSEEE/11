@@ -4,30 +4,22 @@
 
 int main(int argc, char *argv[])
 {
-     int i;                         //정수형 i 선언 
-     int grade[5];                  //정수형 grade[5] 선언  
-     int average = 0;               //정수형 average 선언, 0으로 초기화 
+     char *pc;
+     int *pi;
+     double *pd;
      
-     for (i=0; i<5; i++)            //i가 0,1,2,3,4, 반복하면 for문 탈출 
-     {
-         printf("input value (%i) : ", i); //grade[0],[1],[2],[3],[4] 출력 
-         scanf("%d", &grade[i]);    //수를 입력하면 grade[0],[1],[2],[3],[4]에 저장 
-     }
-   
-   
-   //반복문 및 포인터 문법을 통해 grade 배열값 출력 및 평균 값 계산
-     //반복문 돌리기, grade 배열값 출력 
-     for (i=0; i<5; i++)
-     {
-         printf("grade[%i] = %i\n", i, *(grade+i));
-         average = average + *(grade+i); 
-     } 
-   
-     //평균값 출력 
-     printf("\n"); 
-     printf("average : %i\n ", average/5);
+     pc = (char*)10000; //10000대입. 형변환. 결국 메모리주소(10000번지)를 가리키는 것. 
+     pi = (int*)10000;
+     pd = (double*)10000;
+     
+     printf("증가 전 : pc = %p, pi = %p, pd = %p\n", pc, pi, pd);
+     
+     pc++; //+1씩 해보기 
+     pi++;
+     pd++;
+     
+     printf("증가 후 : pc = %p, pi = %p, pd = %p\n", pc, pi, pd); 
 
-  
   system("PAUSE");	
   return 0;
 }
